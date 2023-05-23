@@ -2,3 +2,4 @@ Flask
 pandas
 sklearn
 numpy
+-e .

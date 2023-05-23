@@ -1,17 +1,17 @@
-from setuptools import setup
+from setuptools import setup,find_packages
 from typing import List
 
 
 # Declaring variables for setup functions
 Project_name ='housing-predictor'
-VERSION = '0.0.1'
+VERSION = '0.0.0'
 Author = 'Dipendra_Pratap'
 Email = 'dipendrapratap55@gmail.com'
 DES = 'This is my first end to end project'
-PACKEGES = ['housing']
-REQUIREMENT_FILE_NAME = 'requirements.txt'
+PACKEGES = find_packages()
 
-def get_requirements_list()->List[str]:
+
+def get_requirements_list(filepath:str)->List[str]:
     """Description : this fuction going to return list of requirement
     mention in requirement.txt file
 
@@ -19,8 +19,9 @@ def get_requirements_list()->List[str]:
         List[str]: this fuction going to return a list 
         which contain name of libraries mentained requirements.txt file
     """
-    with open(REQUIREMENT_FILE_NAME) as requirement_file:
-        return requirement_file.readlines()
+    requirement = []
+    with open(filepath) as requirement_file:
+        return requirement_file.readlines().remove('-e .')
 
 
 setup(
@@ -30,5 +31,5 @@ setup(
     author_email=Email,
     description=DES,
     packages=PACKEGES,
-    install_requires = get_requirements_list()
+    install_requires = get_requirements_list('requirements.txt')
 )
