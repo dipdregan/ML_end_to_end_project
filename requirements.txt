@@ -2,4 +2,6 @@ Flask
 pandas
 sklearn
 numpy
+PyYAML
+scikit-learn
 -e .
