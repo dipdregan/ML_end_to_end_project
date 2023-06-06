@@ -9,7 +9,9 @@ DataIngestionnConfig = namedtuple('DataIngestionConfig',['dataset_download_url',
                                                          'raw_data_dir','ingested_train_dir','ingested_test_dir'])
 
 # scheam file path to validate the data 
-DataValidationConfig = namedtuple('DataValidationConfig',['schema_file_path'])
+DataValidationConfig = namedtuple('DataValidationConfig',['schema_file_path',
+                                                          'report_file_path',
+                                                          'report_page_file_path'])
 
 #data transformation
 DataTransformationConfig = namedtuple('DataTransformationConfig', ['add_bedroom_per_room',
