@@ -1,4 +1,4 @@
-from housing.entity.config_entity import DataIngestionnConfig
+from housing.entity.config_entity import DataIngestionConfig
 from housing.entity.artifact_entity import DataIngestionArtifact
 from housing.exception import HousingException
 from housing.logger import logging
@@ -12,7 +12,7 @@ from sklearn.model_selection import StratifiedShuffleSplit
 
 class DataIngestion:
 
-    def __init__(self,data_ingestion_config:DataIngestionnConfig) -> None:
+    def __init__(self,data_ingestion_config:DataIngestionConfig) -> None:
         try:
             logging.info(f"{'='*20} Data Ingestion log started .{'='*20}")
             self.data_ingestion_config = data_ingestion_config
@@ -33,7 +33,7 @@ class DataIngestion:
 
             os.makedirs(tgz_download_dir,exist_ok=True)
 
-            housing_file_name = os.path.basename(download_url)
+            housing_file_name = os.path.basename(download_url)#geting the file name
 
             tgz_file_path = os.path.join(tgz_download_dir,housing_file_name)
 

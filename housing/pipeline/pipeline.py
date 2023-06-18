@@ -1,19 +1,18 @@
-from housing.config.configration import Configuartion
+from housing.config.configration import Configration
 from housing.logger import logging
 from housing.exception import HousingException
 
-from housing.entity.artifact_entity import DataIngestionArtifact
-from housing.entity.config_entity import DataIngestionnConfig
+from housing.entity.artifact_entity import DataIngestionArtifact,DataValidationArtifact
+from housing.entity.config_entity import DataIngestionConfig
 from housing.components.data_ingestion import DataIngestion
 
-import os,sys
+from housing.components.data_validation import DataValidation
+import os, sys
 
 class Pipeline:
-
-    def __init__(self, config:Configuartion = Configuartion()) -> None:
+    def __init__(self, config:Configration = Configration()) -> None:
         try:
-            self.config =config
-
+            self.config = config
         except Exception as e:
             raise HousingException(e,sys) from e
         
@@ -25,17 +24,24 @@ class Pipeline:
         except Exception as e:
             raise HousingException(e,sys) from e
         
-    def start_data_validation(self):
+
+    def start_data_validation(self,data_ingestion_artifact:DataIngestionArtifact)->DataValidationArtifact:
         try:
-            pass
+            data_validation = DataValidation(data_validation_config=self.config.get_data_validation_config(),
+                                            data_ingestion_artifact = data_ingestion_artifact
+            )
+
+            return data_validation.initiate_data_validation()
         except Exception as e:
             raise HousingException(e,sys) from e
+        
 
     def start_data_transformation(self):
         try:
             pass
         except Exception as e:
             raise HousingException(e,sys) from e
+        
 
     def start_model_trainer(self):
         try:
@@ -44,11 +50,12 @@ class Pipeline:
             raise HousingException(e,sys) from e
         
 
-    def start_model_evaluation(self):
+    def start_model_eveluation(self):
         try:
             pass
         except Exception as e:
             raise HousingException(e,sys) from e
+        
 
     def start_model_pusher(self):
         try:
@@ -58,9 +65,10 @@ class Pipeline:
         
     def run_pipeline(self):
         try:
-            #data ingestion
+
             data_ingestion_artifact = self.start_data_ingestion()
+            data_validation_artifact = self.start_data_validation(data_ingestion_artifact=data_ingestion_artifact)
+
         except Exception as e:
             raise HousingException(e,sys) from e
         
-    
