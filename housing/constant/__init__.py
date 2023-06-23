@@ -57,3 +57,34 @@ DATA_VALIDATION_SCHEMA_FILE_NAME_KEY ='schema_file_name'
 DATA_VALIDATION_ARTIFACT_DIR_NAME ='data_validation'
 DATA_VALIDATION_REPORT_FILE_NAME_KEY = 'report_file_name'
 DATA_VALIDATION_REPORT_PAGE_FILE_NAME_KEY = 'report_page_file_name'
+
+# Data Transformation related variable
+
+# data_transformation_config:
+#   add_bedroom_per_room : true
+#   transformed_dir : transformed_data
+#   transformed_train_dir : train
+#   transformed_test_dir : test
+#   preprocessing_dir : preprocessed
+#   preprocessed_object_file_name : preprocessed.pkl
+
+DATA_TRANSFORAMATION_ARTIFACT_DIR = 'data_transforamation'
+DATA_TRANSFORAMATION_CONFIG_KEY = 'data_transformation_config'
+DATA_TRANSFORAMATION_ADD_BEDROOM_PER_ROOM_KEY = 'add_bedroom_per_room'
+DATA_TRANSFORAMATION_DIR_NAME_KEY = 'transformed_dir'
+DATA_TRANSFORAMATION_TRAIN_DIR_NAME_KEY = 'transformed_train_dir'
+DATA_TRANSFORAMATION_TEST_DIR_NAME_KEY = 'transformed_test_dir'
+DATA_TRANSFORAMATION_PREPROCESSING_DIR_KEY = 'preprocessing_dir'
+DATA_TRANSFORAMATION_PREPROCESSED_FILE_NAME_KEY = 'preprocessed_object_file_name'
+
+
+COLUMN_TOTAL_ROOMS = 'total_rooms'
+COLUMN_POPULATION = 'population'
+COLUMN_HOUSEHOLDS = 'households'
+COLUMN_TOTAL_BEDROOM = 'total_bedrooms'
+DATASET_SCHEMA_COLUMNS_KEY = 'columns'
+
+NUMERICAL_COLUMN_KEY = 'numerical_columns'
+CATEGORICAL_COLUMN_KEY = 'categorical_columns'
+
+TARGET_COLUMN_KEY = 'target_column'

@@ -4,4 +4,6 @@ sklearn
 numpy
 PyYAML
 scikit-learn
+dill
+matplotlib
 -e .
